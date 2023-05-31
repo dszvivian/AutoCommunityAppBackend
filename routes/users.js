@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose')
 require('dotenv').config();
 
-const mongoString = "mongodb+srv://vivian:Jo9r2UonQ5dBfNeX@autocommunity.guejjvu.mongodb.net/";
+const mongoString = process.env.MONGO_URI || " ";
 
 const start = async ()=>{
 
