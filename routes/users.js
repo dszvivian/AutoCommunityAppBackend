@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
+var {getUsers,createuser} = require("../controllers/userController");
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json({message:'Users Backend Working Pretty Fine..........Lesss GoooooOooO'});
-});
+router.get('/', getUsers);
+
+router.post('/new',createuser)
 
 
 module.exports = router;
