@@ -1,31 +1,37 @@
 var userModel = require("../models/user.js")
 
-let getUsers = (req,res)=>{
-    userModel.find().then(foundUsers =>{
-        res.json({
-            message:"All Users",
-            users: foundUsers
-        });
-    });
+let getAllUsers = async(req,res)=>{
+    try{
+        const getAllUsers = await userModel.find()
+        res.status(201).json(getAllUsers)
+    }
+    catch{
+        res.status(400).json({message:error.message})
+    }
 }
 
-let createuser = (req,res)=>{
-    const username = req.body.username;
-    const email = req.body.email;
-    const password = req.body.password;
+let createuser = async(req,res)=>{
 
-    const newUser = new userModel({
-        username:username,
-        email:email,
-        password:password
-    })
+    try{
+        const user = new userModel(req.body);
+        const newUser = await user.save()
+        res.status(201).json(newUser)
 
-    newUser.save().then(userSaved=>{
-        res.status(201).json({
-            message:"User Created Successfully",
-            user: userSaved
-        })
-    })
+    }catch{
+        res.status(400).json({message:error.message})
+    }
 }
 
-module.exports = {getUsers,createuser}
+//get individual json object 
+let getUserbyUsername = async(req,res)=>{
+    try{
+        const un = req.params.username;
+        const getUser = await userModel.find({username:un})
+        res.status(201).json(getUser)
+    }
+    catch{
+        res.status(400).json({message:error.message})
+    }
+}
+
+module.exports = {getAllUsers,createuser,getUserbyUsername}
