@@ -3,7 +3,7 @@ var userAssetsModel = require("../models/userAssetsDetail.js")
 
 let getAllUserAssets = async(req,res)=>{
     try{
-        const getAllUserAssets = await userModel.find()
+        const getAllUserAssets = await userAssetsModel.find()
         res.status(201).json(getAllUserAssets)
     }
     catch{
@@ -14,7 +14,7 @@ let getAllUserAssets = async(req,res)=>{
 let createUserAssets = async(req,res)=>{
 
     try{
-        const userAssets = new userModel(req.body);
+        const userAssets = new userAssetsModel(req.body);
         const newUserAssets = await userAssets.save()
         res.status(201).json(newUserAssets)
 

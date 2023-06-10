@@ -10,9 +10,9 @@ router.post('/',createuser);
 
 router.get('/:username',getUserbyUsername);
 
-router.get('/:username/assets',getAllUserAssets);
+router.get('/assets/:username',getAllUserAssets);
 
-router.get('/:username/assets',createUserAssets);
+router.post('/assets/:username',createUserAssets);
 
 
 module.exports = router;
