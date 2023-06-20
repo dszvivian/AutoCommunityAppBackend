@@ -14,7 +14,15 @@ let getAllUserAssets = async(req,res)=>{
 let createUserAssets = async(req,res)=>{
 
     try{
-        const userAssets = new userAssetsModel(req.body);
+        const un = req.params.username;
+        
+        const user = new userAssetsModel({
+            username:un,
+            assetImage:req.body.assetImage,
+            assetName:req.body.assetName
+        })
+
+        const userAssets = new userAssetsModel(user);
         const newUserAssets = await userAssets.save()
         res.status(201).json(newUserAssets)
 
@@ -23,4 +31,18 @@ let createUserAssets = async(req,res)=>{
     }
 }
 
-module.exports = {getAllUserAssets,createUserAssets}
+
+
+let getAssetsByUsername = async(req,res)=>{
+
+    try{
+        const un = req.params.username;
+        const getAssetsByUsername = await userAssetsModel.find({username:un})
+        res.status(201).json(getAssetsByUsername)
+    }
+    catch{
+        res.status(400).json({message:error.message})
+    }
+}
+
+module.exports = {getAllUserAssets,createUserAssets,getAssetsByUsername}

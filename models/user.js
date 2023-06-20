@@ -20,6 +20,18 @@ let schema = new  mongoose.Schema(
             type: String,
             required:true,
             trim:true
+        },
+        pName:{
+            type:String,
+            default:"Mr.XXXXX"
+        },
+        pPicture:{
+            type:String,
+            default:"https://www.shutterstock.com/image-vector/rider-front-view-on-yellow-260nw-2133689475.jpg"
+        },
+        pDescription:{
+            type:String,
+            default:"No plans. No maps. No GPS. Just ride."
         }
     }
 );

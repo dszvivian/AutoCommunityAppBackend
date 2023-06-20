@@ -34,4 +34,25 @@ let getUserbyUsername = async(req,res)=>{
     }
 }
 
-module.exports = {getAllUsers,createuser,getUserbyUsername}
+
+let updateUserDetails = async(req,res)=>{
+    try{
+        const un = req.params.username;
+        const filter = {username:un};
+        const newValues = { $set : {
+            pName:req.body.pName,
+            pPicture:req.body.pDescription
+        }}
+        userModel.updateOne(
+            filter,
+            newValues
+        ).then(
+            res.status(201).json({message:"Successfully Updated User"})
+        )
+    }catch{
+        res.status(400).json({message:error.message})
+    }
+}
+
+
+module.exports = {getAllUsers,createuser,getUserbyUsername,updateUserDetails}
