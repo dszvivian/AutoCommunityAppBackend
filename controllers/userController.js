@@ -41,7 +41,7 @@ let updateUserDetails = async(req,res)=>{
         const filter = {username:un};
         const newValues = { $set : {
             pName:req.body.pName,
-            pPicture:req.body.pDescription,
+            pPicture:req.body.pPicture,
             pDescription:req.body.pDescription
         }}
         userModel.updateOne(
