@@ -23,9 +23,9 @@ router.post('/assets/:username',createUserAssets);
 
 router.get('/posts',getAllPost);
 
-router.post('/post/username',createPost);
+router.post('/posts/:username',createPost);
 
-router.get('/posts/username',getPostByUsername);
+router.get('/posts/:username',getPostByUsername);
 
 
 
