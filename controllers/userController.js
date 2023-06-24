@@ -56,4 +56,7 @@ let updateUserDetails = async(req,res)=>{
 }
 
 
+
+
+
 module.exports = {getAllUsers,createuser,getUserbyUsername,updateUserDetails}

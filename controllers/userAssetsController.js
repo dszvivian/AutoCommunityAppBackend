@@ -45,4 +45,6 @@ let getAssetsByUsername = async(req,res)=>{
     }
 }
 
+
+
 module.exports = {getAllUserAssets,createUserAssets,getAssetsByUsername}
