@@ -14,3 +14,7 @@ let schema = new mongoose.Schema(
         }
     }
 )
+
+let post = mongoose.model("post",schema)
+
+module.exports = post;
