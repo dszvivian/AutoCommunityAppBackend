@@ -39,4 +39,4 @@ let getPostByUsername = async (req,res)=>{
     }
 }
 
-module.exports(createPost,getAllPost,getPostByUsername)
+module.export= createPost,getAllPost,getPostByUsername;
