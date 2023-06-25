@@ -7,3 +7,5 @@ router.get('/',getAllPost);
 router.post('/:username',createPost);
 
 router.get('/:username',getPostByUsername);
+
+module.exports = router;
