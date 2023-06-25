@@ -29,6 +29,24 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+var io = require('socket.io')(http);
+
+// var nsp = io.of() //figure out what it is namespace
+
+// var sconn = nsp.on('Connection',(socket)=>{
+//   console.log(" UserConnected");
+
+//   socket.on('disconnect',()=>{
+//     console.log('User Disconnected');
+//   })
+
+// })
+
+io.on( 'connection', function( socket ) {
+  console.log( 'a user has connected!' );
+  });
+
+
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -88,3 +106,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+

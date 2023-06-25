@@ -1,6 +1,8 @@
 var userAssetsModel = require("../models/userAssetsDetail.js")
 
 
+
+
 let getAllUserAssets = async(req,res)=>{
     try{
         const getAllUserAssets = await userAssetsModel.find()
