@@ -22,7 +22,7 @@ let createPost =  async(req,res)=>{
 
 let getAllPost = async(req,res)=>{
     try{
-        const getAllPost = await postModel.find()
+        const getAllPost = await postModel.find();
         res.status(201).json(getAllPost)
     }catch{
         res.status(400).json({message:error.message})
